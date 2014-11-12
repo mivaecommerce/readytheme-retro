@@ -1,0 +1,18 @@
+<Module code="customfields" feature="fields_prod">
+	<ProductField_Add>
+		<Code>options</Code>
+		<Name>Options</Name>
+	</ProductField_Add>
+	<ProductField_Add>
+		<Code>product_type</Code>
+		<Name>Product Type</Name>
+	</ProductField_Add>
+	<ProductField_Add>
+		<Code>short_description</Code>
+		<Name>Short Description</Name>
+	</ProductField_Add>
+	<ProductField_Add>
+		<Code>specs</Code>
+		<Name>Specs</Name>
+	</ProductField_Add>
+</Module>
