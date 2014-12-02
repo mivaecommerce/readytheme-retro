@@ -1,0 +1,9 @@
+<mvt:if expr="l.settings:messages:error_message_count EQ 0">
+	<div class="alert alert-danger">The resource you requested is not available at this time.</div>
+<mvt:else>
+	<div class="alert alert-danger">
+		<mvt:foreach iterator="error" array="messages:error_messages">
+			&mvt:error;
+		</mvt:foreach>
+	</div>
+</mvt:if>

@@ -1,0 +1,21 @@
+<mvt:item name="html_profile" file="cssui-html-profile-item.htm" />
+<head>
+	<title>&mvt:product:name; - &mvt:store:name;</title>
+	<mvt:item name="head" param="head_tag" file="cssui-global-head-item.htm" />
+	<mvt:item name="prodctgy_meta" param="prod" />
+	<mvt:item name="attributemachine" param="head" />
+	<mvt:item name="product_display_imagemachine" param="head" />
+</head>
+<mvt:item name="body" file="body-item.htm">
+	<mvt:item name="hdft" param="global_header" file="global-header-item.htm" />
+	<mvt:item name="hdft" param="header" file="PROD-header-item.htm" />
+	<mvt:item name="content" file="PROD-content-item.htm" />
+	<mvt:item name="hdft" param="footer" file="PROD-footer-item.htm" />
+	<mvt:item name="hdft" param="global_footer" file="global-footer-item.htm" />
+	<div id="closeup_div" class="closeup">
+		<img id="closeup_image" src="graphics/en-US/cssui/blank.gif" alt="" />
+		<div><a id="closeup_close">close</a></div>
+	</div>
+	<mvt:item name="product_display_imagemachine" param="body:product:id" />
+</mvt:item>
+</html>

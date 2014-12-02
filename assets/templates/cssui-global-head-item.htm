@@ -1,0 +1,77 @@
+<meta charset="utf-8" />
+<base href="&mvt:global:basehref;" />
+<mvt:if expr="l.settings:page:code EQ 'SFNT' OR l.settings:page:code EQ 'BASK' OR g.secure">
+	<link rel="canonical" href="http://&mvta:global:domain:name;/" />
+<mvt:elseif expr="l.settings:page:code EQ 'CTGY'">
+	<link rel="canonical" href="http://&mvta:global:domain:name;/category/&mvta:category:code;.html" />
+<mvt:elseif expr="l.settings:page:code EQ 'PROD' OR l.settings:page:code EQ 'PATR'">
+	<link rel="canonical" href="http://&mvt:global:domain:name;/product/&mvt:product:code;.html" />
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="&mvt:product:name;">
+	<meta name="twitter:description" content="Check out the deal on &mvt:product:name; at &mvt:store:name;">
+	<meta name="twitter:image:src" content="http://&mvt:global:domain:name;/mm5/&mvt:product:customfield_values:productimagecustomfields:main;">
+	<meta property="og:type" content="product" />
+	<meta property="og:product_id" content="&mvt:product:code;" />
+	<meta property="og:title" content="&mvt:product:name;" />
+	<meta property="og:image" content="http://&mvt:global:domain:name;/mm5/&mvt:product:customfield_values:productimagecustomfields:main;" />
+	<meta property="og:url" content="http://&mvt:global:domain:name;/product/&mvt:product:code;.html" />
+	<meta property="og:site_name" content="&mvte:global:store:name;" />
+	<meta property="og:description" content="Check out the deal on &mvt:product:name; at &mvt:store:name;" />
+	<meta property="og:price:amount" content="&mvt:product:price;" />
+	<mvt:if expr="l.settings:product:cost GT l.settings:product:price">
+		<meta property="og:price:standard_amount" content="&mvt:product:cost;" />
+	</mvt:if>
+	<meta property="og:price:currency" content="USD" />
+	<meta property="og:availability" content="instock" />
+<mvt:else>
+	<link rel="canonical" href="http://&mvta:global:domain:name;/&mvta:page:code;.html" />
+</mvt:if>
+
+<mvt:if expr="l.settings:product:metafield:keywords">
+	<meta name="keywords" content="&mvt:product:metafield:keywords;" />
+<mvt:elseif expr="l.settings:category:metafield:keywords">
+	<meta name="keywords" content="&mvt:category:metafield:keywords;" />
+<mvt:elseif expr="l.settings:page:keywords">
+	<meta name="keywords" content="&mvt:page:keywords;" />
+<mvt:else>
+	<meta name="keywords" content="&mvt:store:name;" />
+</mvt:if>
+<mvt:if expr="l.settings:product:metafield:description">
+	<meta name="description" content="&mvt:product:metafield:description;" />
+<mvt:elseif expr="l.settings:category:metafield:description">
+	<meta name="description" content="&mvt:category:metafield:description;" />
+<mvt:elseif expr="l.settings:page:description">
+	<meta name="description" content="&mvt:page:description;" />
+<mvt:else>
+	<meta name="description" content="&mvt:store:name;" />
+</mvt:if>
+
+<mvt:item name="head" param="css_list" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,600|Cabin:400,700,400italic,700italic|Merriweather:400,400italic" rel="stylesheet" type="text/css">
+<!-- HTML5 Support for IE -->
+<!--[if lt IE 9]>
+	<script src="js/ie8.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="slick/slick.css">
+<mvt:item name="readytheme" param="css" />
+
+<mvt:comment>
+	<!--
+		These link the font files in the Framework Export. 
+		<link href="/fonts/fontawesome-webfont.eot" />
+		<link href="/fonts/fontawesome-webfont.svg" />
+		<link href="/fonts/fontawesome-webfont.ttf" />
+		<link href="/fonts/fontawesome-webfont.woff" />
+		<link href="/fonts/FontAwesome.otf" />
+		<link href="forms/contactForm.php" />
+		<link href="forms/token.php" />
+		<link href="/slick/slick.css">
+		<link href="/js/ie8.js">
+		<link href="/js/jquery.js">
+		<link href="/js/plugins.js">
+		<link href="/js/custom.js">
+	-->
+</mvt:comment>
+<script type="text/javascript" src="&mvt:global:clientside_url;Module_Code=mvga&amp;Filename=mvga.js"></script>

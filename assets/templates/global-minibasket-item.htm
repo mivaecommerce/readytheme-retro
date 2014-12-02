@@ -1,0 +1,69 @@
+<a href="#cart" role="button" data-toggle="modal" class="hidden-lg hidden-md hidden-sm xs-cart pull-right"><i class="icon-shopping-cart"><span>(&mvte:global_minibasket:basket_count;)</span></i></a>
+<!-- Mini Basket modal Starts -->
+<div id="cart" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+				<h4>Shopping Cart</h4>
+			</div>
+			<div class="modal-body">
+				<mvt:if expr="l.settings:global_minibasket:empty">
+					<div class="alert alert-info">Your shopping basket is currently empty.</div>
+				<mvt:else>
+					<table class="table table-striped tcart">
+						<thead>
+							<tr>
+								<th class="hidden-xs">&nbsp;</th>
+								<th>Name</th>
+								<th>Quantity</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody class="text-left">
+							<mvt:foreach iterator="item" array="global_minibasket:items">
+								<tr>
+									<mvt:if expr="l.settings:item:imagetypes:main">
+									<td class="image-row hidden-xs col-md-1"><a href="http://&mvt:global:domain:name;/product/&mvt:item:code;.html"><img src="&mvte:item:imagetypes:main;" alt="&mvt:item:name;" title="&mvt:item:name;" /></a></td>
+									<mvt:else>
+										<td class="image-row hidden-xs col-sm-1">&nbsp;</td>
+									</mvt:if>
+									<td>
+										<a href="http://&mvt:global:domain:name;/product/&mvt:item:code;.html">&mvt:item:name;</a>
+										<mvt:foreach iterator="option" array="item:options">
+											<br />
+											<mvt:if expr="l.settings:option:option_id">
+												&mvt:option:attr_code;: &mvt:option:opt_code;
+											<mvt:elseif expr="NOT ISNULL l.settings:option:data">
+												&mvt:option:attr_code;: &mvt:option:data;
+											<mvt:elseif expr="NOT ISNULL l.settings:option:data_long">
+												&mvt:option:attr_code;: &mvt:option:data_long;
+											<mvt:else>
+												&mvt:option:attr_code;
+											</mvt:if>
+										</mvt:foreach>
+									</td>
+									<td>&mvte:item:quantity;</td>
+									<td>&mvt:item:formatted_subtotal_comprehensive;</td>
+								</tr>
+							</mvt:foreach>
+							<tr>
+								<th class="hidden-xs">&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>Total</th>
+								<th>&mvt:global_minibasket:formatted_total;</th>
+							</tr>
+						</tbody>
+					</table>
+				</mvt:if>
+			</div>
+			<div class="modal-footer">
+				<a href="&mvt:global:secure_sessionurl;Screen=BASK&amp;Store_Code=&mvta:store:code;" class="btn btn-default">View Cart</a>
+				<mvt:if expr="l.settings:global_minibasket:orderminimum_met">
+					<a href="&mvt:global:secure_sessionurl;Screen=OINF&amp;Store_Code=&mvta:store:code;" class="btn btn-danger btn-primary">Checkout</a>
+				</mvt:if>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Mini Basket modal ends -->

@@ -1,0 +1,27 @@
+<mvt:if expr="l.settings:related_product_count NE 0">
+	<div class="category-items">
+		<div class="container">
+			<div class="container-fluid">
+				<h4 class="uppercase text-center">Related Products</h4>
+				<div class="hr-narrow"></div>
+			</div>
+			<div class="row padded-container">
+				<div class="carousel">
+					<mvt:foreach iterator="product" array="related_products:products">
+						<div class="category-item">
+							<span class="item-image">
+								<mvt:if expr="NOT ISNULL l.settings:product:imagetypes:main">
+									<a href="&mvte:product:link;"><img src="&mvte:product:imagetypes:main;" alt="&mvte:product:name;" class="img-responsive" /></a>
+								<mvt:elseif expr="NOT ISNULL l.settings:product:thumbnail">
+									<a href="&mvte:product:link;"><img src="&mvte:product:thumbnail;" alt="&mvte:product:name;" class="img-responsive" /></a>
+								<mvt:else>
+									<a href="&mvte:product:link;">&nbsp;</a>
+								</mvt:if>
+							</span>
+						</div>
+					</mvt:foreach>
+				</div>
+			</div>
+		</div>
+	</div>
+</mvt:if>

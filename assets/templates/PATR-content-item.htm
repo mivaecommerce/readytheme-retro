@@ -1,0 +1,15 @@
+<h1 class="title">&mvt:product:name;</h1>
+<mvt:item name="prod_ctgy_hdft" param="prod_header" />
+<mvt:item name="product_display" file="cssui-prodlayout-item.htm" />
+<mvt:item name="attributemachine" param="body" />
+<mvt:if expr="l.settings:related_product_count NE 0">
+	<div class="bor"></div>
+	<h4 class="title">Related Products</h4>
+	<mvt:item name="related_products" file="PATR-prodlist-item.htm" />
+</mvt:if>
+<mvt:item name="prod_ctgy_hdft" param="prod_footer" />
+<div id="closeup_div" class="closeup">
+	<img id="closeup_image" src="graphics/en-US/cssui/blank.gif" alt="" />
+	<div><a id="closeup_close">close</a></div>
+</div>
+<mvt:item name="product_display_imagemachine" param="body:product:id" />

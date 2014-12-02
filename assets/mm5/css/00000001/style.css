@@ -42,8 +42,6 @@ h4,
 	font-size: 16px;
 	line-height: 36px;
 }
-h5,
-.h5,
 h6,
 .h6 {
 	color: #444;
@@ -851,6 +849,7 @@ table.tcart{
 	font-size: 10px;
 	font-weight: bold;
 	margin-bottom: 10px;
+	font-family: 'Cabin', 'Open Sans', Arial, Helvetica, sans-serif;
 }
 .category-item .item-details{
 	width: 80%;
@@ -874,6 +873,7 @@ table.tcart{
 	line-height: 20px;
 	border-radius: 5px;
 	font-size: 14px;
+	font-family: 'Merriweather', serif;
 }
 .category-item .button{
 	text-align:center;
@@ -1597,22 +1597,40 @@ padding: 0px;
 	}
 
 /* ---- =PROD ---- */
+.product-quantity {
+	border: 2px solid #000;
+	border-radius: 0;
+	height: 50px;
+}
+.product-quantity-label {
+	font-size: 16px;
+	height: 50px;
+	line-height: 40px;
+}
 .product-accordion .title{
 	cursor: pointer;
 	margin: 0;
+	font-size: 16px;
 }
 	.product-accordion .title:after{
-		content: '+ ';
-		font-weight: bold;
+		content: 'show more +';
 		font-family: 'Merriweather', serif;
 		float: right;
+		font-size: 12px;
+		font-weight: normal;
+		font-style: italic;
+		text-transform: lowercase;
 	}
 		.product-accordion .title.open:after{
 			content: 'show less -';
-			text-transform: lowercase;
 			font-style: italic;
 			font-family: 'Merriweather', serif;
 		}
+	.product-accordion div{
+		font-family: 'Merriweather', serif;
+		padding: 15px 0;
+		font-size: 14px;
+	}
 	.product-image{
 		height: 350px; /* matches PROD main image dimension */
 	}

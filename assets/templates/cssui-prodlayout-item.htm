@@ -1,0 +1,72 @@
+<div class="product-main">
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<!-- Image -->
+			<div class="product-images">
+				<div class="product-image">
+					<img src="graphics/en-US/cssui/blank.gif" alt="&mvte:product:name;" title="&mvte:product:name;" id="main_image" class="aligncenter" />
+				</div>
+				<ul id="thumbnails" class="thumbnails"></ul>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<span id="price-value-additional" style="text-decoration: line-through"></span>
+			<span id="price-value" class="pull-right merriweather h4">&mvt:product:formatted_base_price;</span>
+			<div id="product-discounts"></div>
+			<h1 class="uppercase cabin">&mvt:product:name;</h1>
+			<mvt:item name="customfields" param="Read_Product_ID(l.settings:product:id, 'product_type', l.settings:product:customfield_values:customfields:product_type)" />
+			<mvt:if expr="l.settings:product:customfield_values:customfields:product_type">
+				<p class="product-type uppercase bold">&mvt:product:customfield_values:customfields:product_type;</p>
+			</mvt:if>
+			<div class="clearfix"></div>
+			<form method="post" action="&mvte:global:sessionurl;Screen=BASK" class="form-horizontal" role="form">
+				<input type="hidden" name="Old_Screen" value="&mvte:global:Screen;" />
+				<input type="hidden" name="Old_Search" value="&mvte:global:Search;" />
+				<input type="hidden" name="Action" value="ADPR" />
+				<input type="hidden" name="Store_Code" value="&mvte:store:code;" />
+				<input type="hidden" name="Product_Code" value="&mvte:product:code;" />
+				<input type="hidden" name="Category_Code" value="&mvte:global:category_code;" />
+				<input type="hidden" name="Offset" value="&mvte:global:Offset;" />
+				<input type="hidden" name="AllOffset" value="&mvte:global:AllOffset;" />
+				<input type="hidden" name="CatListingOffset" value="&mvte:global:CatListingOffset;" />
+				<input type="hidden" name="RelatedOffset" value="&mvte:global:RelatedOffset;" />
+				<input type="hidden" name="SearchOffset" value="&mvte:global:SearchOffset;" />
+				<div id="swatches" class="swatches"></div>
+				<div class="product-attributes">
+					<mvt:item name="product_attributes" param="product:id" file="PROD-product_attributes-item.htm" />
+				</div>
+				<div class="form-group">
+					<label for="product-quantity" title="Quantity" class="col-md-2 control-label text-center product-quantity-label">QTY</label>
+					<div class="col-md-2">
+						<input type="text" name="Quantity" value="1" id="product-quantity" class="form-control text-center product-quantity" />
+					</div>
+					<div class="col-md-8">
+						<button class="btn btn-primary btn-lg btn-block">Add to Cart</button>
+					</div>
+				</div>
+			</form>
+			<div class="col-12">
+				<div class="pull-right product-social-icons">
+					<mvt:item name="readytheme" param="thirdpartysharing" />
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="clearfix product-accordion">
+				<mvt:if expr="l.settings:product:descrip">
+					<h4 class="title">Overview</h4>
+					<div class="italic">&mvt:product:descrip;</div>
+				</mvt:if>
+				<mvt:item name="customfields" param="Read_Product_ID(l.settings:product:id, 'specs', l.settings:product:customfield_values:customfields:specs)" />
+				<mvt:if expr="l.settings:product:customfield_values:customfields:specs">
+					<h4 class="title">Specs</h4>
+					<div class="italic">&mvt:product:customfield_values:customfields:specs;</div>
+				</mvt:if>
+				<mvt:item name="customfields" param="Read_Product_ID(l.settings:product:id, 'options', l.settings:product:customfield_values:customfields:options)" />
+				<mvt:if expr="l.settings:product:customfield_values:customfields:options">
+					<h4 class="title">Options</h4>
+					<div class="italic">&mvt:product:customfield_values:customfields:options;</div>
+				</mvt:if>
+			</div>
+		</div>
+	</div>
+</div>

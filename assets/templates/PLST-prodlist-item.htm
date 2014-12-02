@@ -1,0 +1,27 @@
+<div class="padded-container">
+	<mvt:foreach iterator="product" array="all_products:products">
+		<div class="col-md-4 col-sm-6">
+			<div class="category-item">
+				<div class="item-image">
+					<mvt:if expr="NOT ISNULL l.settings:product:imagetypes:main">
+						<a href="&mvte:product:link;"><img src="&mvte:product:imagetypes:main;" alt="&mvte:product:name;" class="img-responsive" /></a>
+					<mvt:elseif expr="NOT ISNULL l.settings:product:thumbnail">
+						<a href="&mvte:product:link;"><img src="&mvte:product:thumbnail;" alt="&mvte:product:name;" class="img-responsive" /></a>
+					<mvt:else>
+						<a href="&mvte:product:link;">&nbsp;</a>
+					</mvt:if>
+				</div>
+				<div class="item-details">
+					<h5 class="h3 uppercase cabin"><a href="&mvte:product:link;">&mvt:product:name;</a></h5>
+					<mvt:item name="customfields" param="Read_Product_ID(l.settings:product:id, 'product_type', l.settings:product:customfield_values:customfields:product_type)" />
+					<mvt:if expr="NOT ISNULL l.settings:product:customfield_values:customfields:product_type">
+						<p class="product-type">&mvt:product:customfield_values:customfields:product_type;</p>
+					</mvt:if>
+					<div class="item-price pull-left">&mvt:product:formatted_base_price;</div>
+					<a href="&mvte:product:link;" class="pull-right italic merriweather">more detail</a>
+				</div>
+			</div>
+		</div>
+	</mvt:foreach>
+	<div class="clearfix"></div>
+</div>

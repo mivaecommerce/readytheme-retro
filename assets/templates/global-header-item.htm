@@ -1,0 +1,143 @@
+<div id="site-container">
+	<mvt:if expr="g.Maintenance_Warning_Message">
+		<div id="maintenance">&mvte:global:Maintenance_Warning_Message;</div>
+	</mvt:if>
+	<header class="topheader">
+		<div class="container iconbar">
+			<button class="pull-left navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<div class="barGroup">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</div>
+			</button>
+			<a href="#search-modal" role="button" data-toggle="modal" class="pull-left"><i class="icon-search"></i></a>
+			<mvt:item name="global_minibasket" file="global-minibasket-item.htm" />
+			<mvt:if expr="g.Basket:cust_id">
+				<a href="&mvt:global:secure_sessionurl;Store_Code=&mvta:global:Store_Code;&Screen=ACLN" role="button" class="pull-right"><i class="icon-user"></i></a>
+			<mvt:else>
+				<a href="#login" role="button" data-toggle="modal" class="pull-right"><i class="icon-user"></i></a>
+			</mvt:if>
+		</div>
+	</header>
+	<header class="btmheader">
+		<div class="container">
+			<div class="row">
+				<div class="text-center">
+					<div class="logo">
+						<mvt:if expr="l.settings:readytheme:logo_type EQ 'text'">
+							<a href="http://&mvt:global:domain:name;">
+								<h1 class="logo-name">&mvt:readytheme:logo_name;</h1>
+								<h3 class="logo-tagline">&mvt:readytheme:logo_tagline;</h3>
+							</a>
+						<mvt:elseif expr="l.settings:readytheme:logo_type EQ 'image'">
+							<a href="http://&mvt:global:domain:name;">
+								<img src="&mvte:readytheme:logo_image;" alt="&mvt:readytheme:logo_alt;"  title="&mvt:readytheme:logo_alt;" border="0" />
+							</a>
+						<mvt:else>
+							<a href="http://&mvt:global:domain:name;">
+								<img src="/images/img_logo.png" alt="&mvt:store:name;">
+							</a>
+						</mvt:if>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header ends -->
+		<!-- Log In Modal starts -->
+		<div id="login" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header top">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4>Log In</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form">
+							<form method="post" action="&mvte:global:secure_sessionurl;Screen=&mvte:global:screen;" autocomplete="off" class="form-horizontal">
+								<input type="hidden" name="Action" value="LOGN" />
+								<input type="hidden" name="Store_Code" value="&mvte:global:Store_Code;" />
+								<div class="form-group">
+									<label for="Customer_LoginEmail" class="control-label col-md-3">Email Address:</label>
+									<div class="col-md-9">
+										<input type="email" name="Customer_LoginEmail" value="&mvte:global:Customer_LoginEmail;" id="Customer_LoginEmail" class="form-control" autocomplete="off" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="Customer_Password" class="control-label col-md-3">Password:</label>
+									<div class="col-md-9">
+										<input type="password" name="Customer_Password" id="Customer_Password" class="form-control" />
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-9 col-md-offset-3">
+										<button type="reset" class="btn btn-default">Reset</button>
+										<button type="submit" class="btn btn-primary pull-right">Log In</button>
+									</div>
+								</div>
+							</form>
+							<p class="text-right"><small><a href="&mvt:global:secure_sessionurl;Store_Code=&mvta:store:code;&Screen=FPWD" title="Forgot your password? Click Here">Forgot your password?</a></small></p>
+						</div>
+					</div>
+					<div class="modal-header">
+						<h4>Register</h4>
+					</div>
+					<div class="modal-footer">
+						<p>Dont have account? <a href="&mvt:global:secure_sessionurl;Store_Code=&mvta:global:Store_Code;&Screen=ACNT" class="btn btn-default">Register Here</a></p>
+					</div>
+					<div class="modal-header">
+						<h4>Order Status</h4>
+					</div>
+					<div class="modal-footer">
+						<p>Where is my order? <a href="&mvt:global:secure_sessionurl;Store_Code=&mvta:global:Store_Code;&Screen=ORHL" class="btn btn-default">Check Here</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Log In modal ends -->
+		<!-- Search modal Starts -->
+		<div id="search-modal" class="modal fade">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header top">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+						<h4>Search</h4>
+					</div>
+					<div class="modal-body">
+						<!-- Search form -->
+						<form method="GET" action="&mvte:global:sessionurl;" class="form clearfix" role="form">
+							<input type="hidden" name="Store_Code" value="&mvte:store:code;">
+							<input type="hidden" name="Screen" value="SRCH">
+							<div class="input-group">
+								<input type="text" name="Search" value="&mvte:global:Search;" id="search" class="form-control" placeholder="Search Products">
+								<span class="input-group-btn"><mvt:item name="buttons" param="Search" file="cssui-buttonSearch-item.htm" /></span>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Search modal ends -->
+		<mvt:item name="navbar" file="cssui-navbar-item.htm" />
+		<mvt:if expr="l.settings:page:code NE 'SFNT'">
+			<div class="items">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<mvt:if expr="NOT( l.settings:page:code CIN 'PLST|PROD|CTGY' )">
+								<div class="page-head">
+									<h2>
+										<mvt:if expr="l.settings:page:code CIN 'BASK|OMIN|ORDL|OCST|OUS1|OUSM|OSEL|OPAY|INVC'">
+											<i class="icon-shopping-cart"></i>
+										</mvt:if>
+										&mvt:page:name;
+									</h2>
+								</div>
+							</mvt:if>
+							<div class="content">
+								<mvt:if expr="NOT( l.settings:page:code CIN 'PLST|PROD|CTGY|SRCH' )">
+									<mvt:item name="breadcrumbs" />
+								</mvt:if>
+		</mvt:if>

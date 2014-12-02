@@ -1,0 +1,57 @@
+	<mvt:if expr="l.settings:page:code NE 'SFNT'">
+						</div>
+					</div><!-- .row -->
+				</div><!-- .container -->
+			</div><!-- .content -->
+		</div><!-- .items -->
+	</mvt:if>
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 text-center">
+					<p><mvt:item name="readytheme" param="image( 'footer-logo' )" /></p>
+					<mvt:item name="readytheme" param="navigationset( 'footer-navigation' )" />
+					<mvt:if expr="l.settings:readytheme:social_active">
+						<p class="footer-social">
+							<mvt:if expr="l.settings:readytheme:social_facebook">
+								<a href="&mvt:readytheme:social_facebook;" target="_blank" class="icon-2x icon-facebook"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_flickr">
+								<a href="&mvt:readytheme:social_flickr;" target="_blank" class="icon-2x icon-flickr"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_googleplus">
+								<a href="&mvt:readytheme:social_googleplus;" target="_blank" class="icon-2x icon-google-plus"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_instagram">
+								<a href="&mvt:readytheme:social_instagram;" target="_blank" class="icon-2x icon-instagram"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_pinterest">
+								<a href="&mvt:readytheme:social_pinterest;" target="_blank" class="icon-2x icon-pinterest"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_twitter">
+								<a href="&mvt:readytheme:social_twitter;" target="_blank" class="icon-2x icon-twitter"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_vimeo">
+								<a href="&mvt:readytheme:social_vimeo;" target="_blank" class="icon-2x icon-vimeo"></a>
+							</mvt:if>
+							<mvt:if expr="l.settings:readytheme:social_youtube">
+								<a href="&mvt:readytheme:social_youtube;" target="_blank" class="icon-2x icon-youtube"></a>
+							</mvt:if>
+						</p>
+					</mvt:if>
+					<p class="h5 cabin uppercase copy">Copyright &copy; <mvt:eval expr="s.tm_year" /> &mvt:global:store:name; Site by <a target="_blank" href="http://www.mivamerchant.com/" rel="nofollow">Miva, Inc.</a></p>
+					<mvt:item name="readytheme" param="trustsymbol" />
+				</div>
+		</div>
+	</footer><!-- footer -->
+</div><!-- #site-container -->
+
+<!-- Scroll to top -->
+<span class="totop"><a href="#"><i class="icon-chevron-up"></i></a></span>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script>window.jQuery || document.write(unescape('%3Cscript src="js/jquery.js"%3E%3C/script%3E'))</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+<mvt:item name="ga_tracking" />

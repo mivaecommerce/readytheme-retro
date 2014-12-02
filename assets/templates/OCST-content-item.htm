@@ -1,0 +1,40 @@
+<mvt:if expr="l.settings:messages:error_message_count">
+	<div class="alert alert-danger">
+		<mvt:foreach iterator="error" array="messages:error_messages">
+			&mvt:error;
+		</mvt:foreach>
+	</div>
+</mvt:if>
+<mvt:if expr="l.settings:messages:information_message_count">
+	<div class="alert alert-info">
+		<mvt:foreach iterator="message" array="messages:information_messages">
+			&mvt:message;
+		</mvt:foreach>
+	</div>
+</mvt:if>
+<div class="row">
+	<div id="customer-fields" class="editable clearfix col-md-8">
+		<form method="post" action="&mvt:global:secure_sessionurl;" role="form" id="ocst_form" class="form-horizontal clearfix">
+			<mvt:if expr="l.settings:basket:total GT 0">
+				<input type="hidden" name="Action" value="ORDR" />
+				<input type="hidden" name="Screen" value="OUSL" />
+				<mvt:elseif expr="g.Store:req_frship">
+				<input type="hidden" name="Action" value="ORDR" />
+				<input type="hidden" name="Screen" value="OSEL" />
+				<mvt:else>
+				<input type="hidden" name="Action" value="ORDR,SHIP,CTAX,AUTH" />
+				<input type="hidden" name="Screen" value="INVC" />
+			</mvt:if>
+			<input type="hidden" name="Store_Code" value="&mvte:store:code;" />
+			<mvt:item name="customer" file="OCST-custflds-item.htm" />
+			<div class="pull-right">
+				<br>
+				<mvt:item name="buttons" param="Continue" file="cssui-buttonContinue-item.htm" />
+				<br>
+			</div>
+		</form>
+	</div>
+	<div id="basket-contents" class="non-editable cart table-responsive clearfix col-md-4">
+		<mvt:item name="basket" file="OCST-basket-item.htm" />
+	</div>
+</div>

@@ -1,0 +1,9 @@
+<div class="row">
+	<mvt:if expr="NOT ISNULL g.Search">
+		<mvt:if expr="l.settings:search_product_count EQ 0">
+			<div class="alert alert-info">No products matched your search criteria</div>
+		<mvt:else>
+			<mvt:item name="search_results" file="SRCH-prodlist-item.htm" />
+		</mvt:if>
+	</mvt:if>
+</div>
